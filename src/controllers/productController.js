@@ -26,7 +26,7 @@ exports.findByName = (req, res) => {
 }
 
 exports.findByID = (req, res) => {
-  const id = req.params.id
-  const product = productModel.findByID(id)
+  const id = parseInt(req.params.id)
+  const product = productModel.findByID(parseInt(id))
   res.json(product)
 }

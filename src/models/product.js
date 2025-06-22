@@ -1,7 +1,7 @@
 let products = [
   {
     id: 1,
-    name: 1
+    name: 'teste'
   },
   {}
 ]
@@ -20,9 +20,9 @@ module.exports = {
     return { route: 'count', count: products.length }
   },
   findByName(name) {
-    return { route: 'name', product: products.filter((p) => p.name.toLowerCase === name.toLowerCase) }
+    return { route: 'name', product: products.find((p) => p.name?.toLowerCase() === name.toLowerCase()) }
   },
   findByID(id) {
-    return { route: 'id', product: products.filter((p) => p.id === id) }
+    return { route: 'id', product: products.find((p) => p.id === id) }
   }
 }
