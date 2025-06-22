@@ -1,14 +1,20 @@
-let products = [
-  {
-    id: 1,
-    name: 'teste'
-  },
-  {}
-]
+const fs = require('fs')
+const db = './data/db.json'
+
+function loadData() {
+  if (!fs.existsSync('./data/db.json')) {
+    return []
+  }
+
+  const data = fs.readFileSync(db)
+  return JSON.parse(data).products
+}
+
+const products = loadData()
 
 module.exports = {
   all() {
-    return { route: 'all', products }
+    return products
   },
   create(id, name) {
     return { route: 'create', product: { id, name } }
