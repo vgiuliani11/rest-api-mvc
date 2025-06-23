@@ -5,8 +5,9 @@ exports.all = (req, res) => {
 }
 
 exports.create = (req, res) => {
-  const created = productModel.create(req.body)
-  res.status(201).json(created)
+  const id = parseInt(req.body.id)
+  const created = productModel.create(id, req.body)
+  res.status(201).json(id, created)
 }
 
 exports.delete = (req, res) => {
