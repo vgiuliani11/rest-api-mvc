@@ -22,11 +22,8 @@ module.exports = {
     return products
   },
   create(id, product) {
-    console.log(product)
-    console.log(id)
     if (id) {
       const existing = products.findIndex((p) => p.id === id)
-      console.log(existing)
       if (existing >= 0) {
         products[existing] = { ...products[existing], ...product }
         saveData(data)
@@ -44,10 +41,9 @@ module.exports = {
     if (deleted >= 0) {
       products.splice(deleted, 1)
       saveData(data)
-      return 'Product removed'
     }
 
-    return 'Error: Product not found'
+    return deleted >= 0
   },
   count() {
     return products.length
