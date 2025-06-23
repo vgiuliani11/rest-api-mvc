@@ -3,7 +3,7 @@ const db = './data/db.json'
 
 function loadData() {
   if (!fs.existsSync('./data/db.json')) {
-    return []
+    return { products: [] }
   }
 
   const data = fs.readFileSync(db)
